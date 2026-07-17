@@ -2,7 +2,7 @@ schema_version: 1
 goal_id: INNER-COSMOS-COMPLETE-PRODUCT
 mode: SINGLE_SESSION_CONTINUOUS_GOAL
 status: ACTIVE
-updated_at: 2026-07-17T00:26:00+08:00
+updated_at: 2026-07-17T01:05:00+08:00
 
 session_2026_07_16_checkpoints:
   - "7db1a84 feat: cross-Pod live Aurora SSE fan-out/resume/heartbeat + turn.started race fix (G2). 826/826."
@@ -944,7 +944,7 @@ closed_front_g2_sse_cross_pod:
 
 active_front:
   id: EXPERIENCE-FLOW-OVERHAUL
-  state: CHECKPOINT_14_FIELD_AND_GLASS_PANEL_SURFACES_TOKENIZED_DAY_DARK_SURFACES_10_TO_3_NEXT_IS_REMAINING_3_PLUS_WHITE_ALPHA_BORDERS
+  state: CHECKPOINT_15_WHITE_ALPHA_BORDERS_TOKENIZED_PLUS_DAY_ACCENTSOFT_PALETTE_FIXED_ACTIVE_PILL_AA_12_4_NEXT_IS_3_EDGE_DARK_ELEMENTS_THEN_SCREENSHOTS
   intent: |
     Operator directive docs/goal/loop-goal-directive.md §1 raised体验层重造 to the highest priority,
     ahead of the prior CAMPAIGN-B front (now closed below). §1.1 视觉系统重造 (P0): kill the cold
@@ -1160,11 +1160,27 @@ active_front:
       dot). dark — field=rgba(29,21,18,.8)=#1d1512cc IDENTICAL to original; nav=rgba(42,34,32,.863)=
       --glass-raised (~5-RGB shift from #251d18dc, now consistent with other glass, imperceptible). npm test
       115/115, build OK. Evidence evidence/experience/EXPERIENCE-VISUAL-P0-light-morandi/checkpoint-14.md."
+  done_checkpoint_15:
+    - "White-alpha borders/overlays #ffffffXX -> --hairline* (96 refs, alpha-bucketed <=0x0f/0x10-1f/>=0x20)
+      so borders flip to dark-alpha and show on the light bg. Fixed a real cp13 palette bug: day -soft
+      accents were mid-tones but -soft is used as LIGHT pill/tint backgrounds — changed to pale
+      (sage-soft #D3E0D5 / sky-soft #CFD9E4 / plum-soft #E2D4DE / aurora-soft #E8D3B4). Added
+      --ink-on-accent (#241b12, dark in BOTH themes) for text on light accent pills; repointed the 5
+      active-pill color rules cp14 wrongly set to var(--surface-canvas) (would be light-on-light in day)."
+    - "Verified real backend, clean reload: npm test 115/115, build OK. Day — nav border white ->
+      rgba(46,38,32,.12)=--hairline (visible on light); .space-tabs button.active = #241b12 ink on #d3e0d5
+      pale sage, contrast 12.41 (>>AA); --accent-sage-soft day resolves #d3e0d5. Main dark surfaces 10 -> 3
+      edge elements. Dark theme unchanged (ink-on-accent dark both themes = original active-pill intent).
+      NOTE: static-asset caching on the long-lived instance gave stale reads mid-verification; confirmed
+      correct only after a clean navigate — code/build/target were right throughout. Evidence checkpoint-15.md."
   next_machine_actions:
-    - "NEXT (cp15): clear the last 3 day-mode dark surfaces (identify the specific dark-bg button; evaluate
-      .active sage pill contrast on light — may need a light-mode accent tweak, not a raw swap; the small
-      <i> status dot) AND map the #ffffffXX white-alpha border family (~15 distinct alphas) to --hairline*
-      so borders show on light bg (they flip to dark-alpha). Then capture day+night screenshots per doc-11 §1.1.6."
+    - "NEXT (cp16): clear the last 3 day-mode dark edge elements (identify the specific dark-bg button via
+      getMatchedCSSRules; the .active variant still flagged [not space-tabs — likely .cosmos-modes #c7bbaa
+      or a mode button]; the small <i> status/loading dot). Then capture day+night full-screen screenshots
+      per doc-11 §1.1.6 (use a non-animated moment or accept the screenshot-tool timeout and use tile crops)."
+    - "THEN local font packaging (LXGW WenKai/Noto Serif SC/Cormorant/JetBrains Mono, CSP-safe offline);
+      glass-motif unify; Lighthouse>85 + mobile breakpoints. Then §1.2 dead-button regression gate re-run;
+      then §1.3 legacy port. Lower value: per-view ERROR states; inline-busy buttons onto AsyncButton."
     - "THEN local font packaging (LXGW WenKai/Noto Serif SC/Cormorant/JetBrains Mono, CSP-safe offline);
       glass-motif unify; Lighthouse>85 + mobile breakpoints. Then §1.2 dead-button regression gate re-run,
       then §1.3 legacy port. Lower value: per-view ERROR states; remaining inline-busy buttons onto AsyncButton."
